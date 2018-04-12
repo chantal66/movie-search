@@ -14,8 +14,8 @@ describe 'user can search by movie titles' do
     click_button 'Search'
 
     expect(current_path).to eq(search_path)
-    expect(page).to have_content('Iron man')
-    expect(page).to have_content('Iron man 2')
-    expect(page).to have_content('Iron man 3')
+    expect(page).to have_content('Iron Man')
+    expect(page).to have_content('Iron Man 2')
+    expect(page).to have_content('Iron Man 3')
   end
 end
