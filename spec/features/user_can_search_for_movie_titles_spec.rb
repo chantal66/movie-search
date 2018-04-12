@@ -7,15 +7,17 @@ require 'rails_helper'
 # and I should see all movies related to Iron man
 
 describe 'user can search by movie titles' do
-  it 'should see movie titles' do
-    visit root_path
+  VCR.use_cassette('feature/user_can_search_for_movies') do
+    it 'should see movie titles' do
+      visit root_path
 
-    fill_in 'Movie Titles', with: 'Iron man'
-    click_button 'Search'
+      fill_in 'Movie Titles', with: 'Iron man'
+      click_button 'Search'
 
-    expect(current_path).to eq(search_path)
-    expect(page).to have_content('Iron Man')
-    expect(page).to have_content('Iron Man 2')
-    expect(page).to have_content('Iron Man 3')
+      expect(current_path).to eq(search_path)
+      expect(page).to have_content('Iron Man')
+      expect(page).to have_content('Iron Man 2')
+      expect(page).to have_content('Iron Man 3')
+    end
   end
 end
