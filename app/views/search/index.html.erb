@@ -1,0 +1,11 @@
+<h2>Now showing <%= @results.count %> results of <%= @total %></h2>
+
+<div>
+  <% @results.each do |movie| %>
+    Title: <%= movie.title %> <br>
+    Overview: <%= movie.overview %> <br>
+    Popularity: <%= movie.popularity %> <br>
+    Release date: <%= movie.release_date %> <br>
+    -------------------------------------------<br>
+  <% end %>
+</div>
