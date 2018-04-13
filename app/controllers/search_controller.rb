@@ -5,6 +5,6 @@ class SearchController < ApplicationController
     @results = Movie.find_stores(title)
     @total = Movie.total_movies(title)
     @searches = SearchTerm.create(value: params[:search])
-    @past_searches = SearchTerm.all
+    @past_searches = SearchTerm.value_count
   end
 end

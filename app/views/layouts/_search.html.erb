@@ -1,6 +1,8 @@
-<div>
-  <%= form_tag(search_path, :method => 'get', id: 'search-form') do %>
-    <%= text_field_tag :search, params[:search], placeholder: 'Movie Titles' %>
-    <%= submit_tag 'Search' %>
-  <% end %>
+<div class="container">
+  <div class="col-12 col-md-8 col-md-offset-4">
+    <%= form_tag(search_path, :method => 'get', id: 'search-form') do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Movie Titles' %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </div>
 </div>
