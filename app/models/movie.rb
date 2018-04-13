@@ -12,7 +12,7 @@ class Movie
     @release_date = movie[:release_date]
   end
 
-  def self.find_stores(title)
+  def self.find_movies(title)
     movie = MovieService.find_movies(title)
     movie.map do |movie|
       new(movie)

@@ -1,6 +1,7 @@
-<div class="col-6 col-md-4 sidebar">
+<div class="col-md-2 col-sm-2 col-lg-2 sidebar">
+  <h3>Search History</h3>
   <% @past_searches.each do |query, value| %>
-    <%= "#{query} (#{value})" %> <br>
+      <%= link_to "#{query} (#{value})", "/search?&search=#{query}" %> <br>
   <% end %>
 </div>
 
