@@ -9,16 +9,8 @@
   </head>
 
   <body>
-  <div class="col-md-10">
+    <%= yield :sidebar %>
     <%= render 'layouts/search' %>
     <%= yield %>
-  </div>
-  <div class="col-md-2 sidebar">
-    <h3>Past Searches</h3>
-    <div>
-      <br>
-      <%= render 'layouts/search_term' %>
-    </div>
-  </div>
   </body>
 </html>

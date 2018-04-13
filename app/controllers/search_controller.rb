@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+
   def index
     title = params[:search]
     @results = Movie.find_stores(title)
