@@ -13,12 +13,12 @@
     <%= render 'layouts/search' %>
     <%= yield %>
   </div>
-  <div class="col-md-2 sidebar"> <!--sidebar from here-->
+  <div class="col-md-2 sidebar">
     <h3>Past Searches</h3>
     <div>
       <br>
-      Some side bar content
+      <%= render 'layouts/search_term' %>
     </div>
-  </div> <!-- sidebar up to here-->
+  </div>
   </body>
 </html>
