@@ -5,17 +5,34 @@ class SearchTerm < ApplicationRecord
     group(:value).order(value: :asc).count
   end
 
+  def self.sort_title_desc
+    group(:value).order(value: :desc).count
+  end
+
+  def self.sort_title_asc
+    group(:value).order(value: :asc).count
+  end
+
+  def self.oldest
+    group('created_at::date', 'value').count.sort
+  end
+
+  def self.count_desc
+    group(:value).count.sort_by{|k,v| v}.reverse
+  end
+
+  def self.count_asc
+    group(:value).count.sort_by{|k,v| v}
+  end
+
   def self.sort_list(sort_order)
-    if sort_order == 'title desc' || sort_order.blank?
-      group(:value).order(value: :desc).count
-    elsif sort_order == 'title asc'
-      group(:value).order(value: :asc).count
-    elsif sort_order == 'oldest desc'
-      group('created_at::date', 'value').count.sort
-    elsif sort_order == 'count desc'
-      group(:value).count.sort_by{|k,v| v}.reverse
+    case
+      when (sort_order == 'title desc' || sort_order.blank?) then sort_title_desc
+      when sort_order == 'title asc' then sort_title_asc
+      when sort_order == 'oldest' then oldest
+      when sort_order == 'count desc' then count_desc
     else
-      group(:value).count.sort_by{|k,v| v}
+      count_asc
     end
   end
 end

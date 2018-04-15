@@ -9,7 +9,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <li><%= link_to 'Title Desc', search_term_path(sort: 'title desc')%></li>
       <li><%= link_to 'Title Asc', search_term_path(sort: 'title asc')%></li>
-      <li><%= link_to 'Newest', search_term_path(sort: 'newest desc')%></li>
+      <li><%= link_to 'Oldest', search_term_path(sort: 'oldest')%></li>
       <li><%= link_to 'Count Desc', search_term_path(sort: 'count desc')%></li>
       <li><%= link_to 'Count Asc', search_term_path(sort: 'count asc')%></li>
       </ul>
@@ -18,7 +18,7 @@
     <br>
     <% if current_page?('/search_term') %>
       <% @sorted_searches.each do |query, value| %>
-        <%= link_to "#{query} (#{value})", "/search?&search=#{query}" %> <br>
+        <%= link_to "#{query} (#{value})", "/search?&search=#{query[1]}" %> <br>
       <% end %>
     <% else %>
       <% @past_searches.each do |query, value| %>
