@@ -1,6 +1,6 @@
 # README
 
-## Code Challenge 
+## Movie Search
 
 > Using Ruby on Rails and a public API of your choice:
 >* Create a page where a public user can do a keyword search and view results. 
